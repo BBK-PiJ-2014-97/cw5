@@ -81,26 +81,24 @@ public class HTMLRead {
 	 * @param ch1
 	 * @param ch2
 	 */
-	public String readString(BufferedReader is, char ch1, char ch2) {
+	public String readString(BufferedReader in, char ch1, char ch2)  {
+		String toReturn = "";
 
-		int data;
-		StringBuffer output = new StringBuffer();
 		try {
-			while ((data = is.read()) != -1) {
-
-				char ch = (char) data;
-				if (ch == ch1) {
-					break;
-				} else if (ch == ch2) {
+			while ((currentChar = in.read()) != -1) {
+				char current = (char) currentChar;
+				if(current == ch1) {
+					return toReturn;
+				} else if(current == ch2) {
 					return null;
 				}
-				output.append((char) data);
+				toReturn += current; // Includes terminating character
 			}
-
 		} catch (IOException e) {
-			System.out.println("File cannot be read: " + e);
+			e.printStackTrace();
 		}
-		return output.toString();
+		
+		return toReturn;
 	}
 	
 }
