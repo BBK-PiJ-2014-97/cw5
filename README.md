@@ -1,4 +1,4 @@
-MARIO Husha - PIJ - CW5 - WebCrawler Project
+WebCrawler Project
 ===
 
 README for WebCrawler
